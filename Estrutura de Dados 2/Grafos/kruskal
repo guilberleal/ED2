@@ -1,0 +1,26 @@
+Algoritmo de Kruskal
+
+	Determina a árvore geradora mínima em um grafo. O algoritmo de Kruskal não possui a limitação do algoritmo de Prim, permitindo que haja vértices desconexos.
+	Também é um algoritmo guloso, usando uma estratégia parecida com o algoritmo de Prim. No entanto, o algoritmo de Kruskal adiciona a cada iteração, uma aresta á solução, sendo esta aresta aquela com menor peso associado. A principal condição para a adição de uma aresta é que nenhum ciclo pode ser formado.
+	O algoritmo usa uma fila de prioridades, que ordena as arestas em ordem crescente de pesos.
+	Uma estrategia eficiente de veririfar se uma aresta irá forma ciclos é gerenciar "conjuntos de vértices" (pode-se utilizar estruturas dinâmicas). Dessa forma, podemos pensar nas seguintes operações:
+	"Cria conjunto(x)": cria um novo conjunto com único membro(x) x não deve pertencer a outro conjunto.
+	"União(X,Y)": une os conjuntos que contém x e y, gerando um novo conjunto (os antigos são descartados);
+	"Encontre Conjunto(x)": retorna o conjunto que contém x.
+
+Algoritmo de Kruskal {
+
+	S <- vazio
+	ordena as arestas 'e' pelo peso
+	para cada aresta (u,v) E 'e', tomada em ordem crescente
+		se EncontreConjunto(u) != EncontreConjunto(v) então
+			S <- S U {(u,v)}
+			União (u,v)
+		fim_se
+	fim_para
+
+fim_algoritmo
+
+
+
+	

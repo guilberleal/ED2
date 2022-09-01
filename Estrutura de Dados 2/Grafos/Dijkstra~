@@ -1,0 +1,24 @@
+	Resolve o problema do caminho mais curto de unica origem em um grafo orientad G=(V,E) para o caso onde 
+todos os pesos de arestas sao nao-negativos. Portanto, supomos que w(u,v) >= 0 para cada aresta (u,v) E e.
+	O algoritmo de Dijkstra matem um conjunto S de vertices cujos pesos finais de caminho mais curto a partir 
+da origem s foram determinados. O algoritmo seleciona repetidamente o vertice u >= V-S com a estimativa minima de
+caminhos mais curtos, adiciona u a S e relaxa todas as arestas que saem de u. Na implementação, manteremos uma
+fila de prioridade minima Q de vertices, tendo como chaves seus valores d (distancia).
+
+Algoritmo de Dijkstra ( G,s )
+1. inicializa grafo (G,s)
+2. S<-vazio
+3. Q<-V[G]
+4. enquanto (Q!=vazio)
+5.	u<-extrai
+6.	S<- S U {u}
+7.	para cada vizinho v E adjacente(u)
+8.		relaxa(u,v,w)
+		
+funçao inicializa grafo (G,s)
+
+1. Para cada vertice v E V[G]
+	d[v]<-<><>
+	pi[v]<-nulo
+fim para
+d

@@ -1,0 +1,31 @@
+﻿/* Vértices */
+a COMP1
+b COMP2
+c COMP3
+d COMP4
+e COMP5
+f COMP6
+g COMP7
+h COMP8
+i COMP9
+j COMP10
+k COMP11
+l COMP12
+m COMP13
+/* Arestas */
+a b 5
+a k 9
+b k 3
+a c 8
+a d 4
+a e 7
+a f 11
+f e 8
+b g 3
+b h 6
+b i 7
+b j 8
+g j 4
+k l 5
+k m 10
+l m 4

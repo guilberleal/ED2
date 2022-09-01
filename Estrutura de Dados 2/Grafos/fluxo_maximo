@@ -1,0 +1,3 @@
+Definição: dada uma rede, com um nó de entrada e um nó de saída, com capacidades associadas a cada ramo, pretende-se saber qual é o fluxo maximo que se pode enviar da entrada para a saida.
+Considere o seguinte sistema, onde deseja-se maximizar:
+

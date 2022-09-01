@@ -1,0 +1,29 @@
+Em um ciclo euleriano, todas as arestas de um grafo G = (V,E) são visitadas uma única vez (pode visitar mais de uma vez um vértice).
+Uma propriedade importante é que existe um ciclo Euleriano apenas se o grau de todos os vértices é PAR. Dessa forma, Euler provou que existe um caminho no grafo de tal forma que para todo vértice há um passo de "entrada" (no vértice) e um passo de "saída".
+Podemos pensar um algoritmo para encontrar um cilo Euleriano tal que:
+1- Seleciona-se um vértice qualquer do grafo
+2- Seleciona uma aresta qualquer, incidente ao vértice selecionado
+3- Insere a aresta no caminho "solução"
+4- A partir do novo vértice , alcançado pela aresta selecionada, repete-se o processo, até que não existam mais arestas não utilizadas.
+
+Algoritmo de Fleury
+
+Entrada: G(V,E), conexo com todos os nós de grau 'par'
+Saída: Uma lista P=v0,e0,v1,e1,..,en,vn. que corresponde o caminho que inclui cada aresta de E exatamente 1 vez.
+Procedimento:
+	
+	v <- seleciona um vértice qualquer
+	n <- |E|
+	i <- 1
+	enquanto (i<=n) faça
+		E' <- e pertencente a E e incidente á v
+		e' <- seleciona qualquer aresta em E'
+		enquanto (e' é ponte e |E'| > 1) faça
+			E' <- E' \ {e'}
+			e' <- seleciona qualquer aresta em E' (v,w)
+		fim_enquanto
+		P <- P U e' U w
+		E <- E \ {e}
+		v <- w
+		i <- i + 1
+	fim_enquanto

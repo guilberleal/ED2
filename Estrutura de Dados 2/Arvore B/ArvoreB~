@@ -1,0 +1,55 @@
+Nas arvores B cada no possui varios valores e mais que 2 filhos.
+Uma arvore B possui as seguintes propriedades:
+
+1- Todo no x possui os seguintes campos:
+	a- n, que corresponde aos numero de chaves (valores) armazenadas em x
+	b- as n chaves (R1, R2.. Rn) sao armazenadas em ordem crescente
+	c- folha, indica se x e uma folha ou um no interno
+
+2- Se x e um no interno, entao ele possui n+1 ponteiros (f1, f2,...,fn) para seus filhos, podendo alguns serem nulos.
+nt
+	a- Todo no, diferente da raiz deve possuir ao menos t-1 chaves
+	b- todo no interno, diferente da raiz, deve deve possuir ao mesnos t filhos
+	c- se a arvore nao e vazia, entao a raiz possui ao menos uma chave
+	d- todo no pode conter no maximo 2t-1 chaves
+	e- todo no interno pode ter no maximo 2t filhos
+
+Diferente das arvores binarias balanceadas, em uma arvore B a medida que inserimos novos valores, ela cresce para "cima"
+
+
+50 10 30 80 40 48 44 42 60 70 55 5 7 8 9 20 24 26
+
+simular:
+
+Considerando t = 3
+Execute as inserções:
+50 10 30 80 40 48 44 42 60 70 55 5 7 8 9 20 24 26 90 100 110 120 1 2 3 4
+
+Implemetação da inserção:
+
+1- Defina uma constante T
+2- Defina uma estrutura TipoArvB
+	inteiro num_chaves
+	caracter chaves [2xT-1]
+	tipoarvb *filhos[2xT]
+	inteiro folha (flag que sinaliza se o no e folha)
+3- implemente as funções
+	3.1 considerando o contextoem que um no nao esta cheio, implemente a função que insere um novo valor do no de 
+	maneira ordenada, incluindo o novo filho. Utilize o prototipo:
+		void inserechave (tipoarvb *raiz, int valor, tipoarvb *filhodir);
+	3.2 implemente a função que busca a posição onde o novo valor deve ser inserido e executa a inserção (função anterior),
+	executando as subdivisões quando necessario. Considere o prototipo e o pseudocodigo a seguir:
+		tipoarvb *insere(tipoarvb *raiz, int valor, ... )
+			-insira um novo no para o caso da arvore estar vazia
+			-senao, faça uma busca binaria nas chaves do no
+				-se o valor foi encontrado, nao faça nada
+				-senao desça na arvore ate um no folha
+					-verifica se o no possui espaço disponivel, se sim insira a nova chave
+					-senao, e preciso sub-dividir o no:
+						-identifique o elemento mediano que ira subir para o pai
+	\(-_-)/					-aloque um novo no e armazene nele metade dos elementos do no a ser dividido
+						-autalize os dados no no dividido
+						-insira o novo valor no nó apropriado
+						-Proceda com a inserção do nó dividido
+	3.3 Implemente a função principal de inserção com o prototipo:
+		

@@ -1,0 +1,73 @@
+Remoção em AVL
+
+A remoção deve seguir a lógica:
+
+1- Remover o nó 'x' da AVL usando o mesmo algoritmo usado em uma árvore binária. Recursivamente, empilha cada nó que é visitado a partir da raiz.
+
+2- Verifica se a pilha está vazia, se sim o algoritmo termina, senão segue para o passo 3.
+
+3- Desempilha um nó e verificar se a diferença de altura entra a sub-árvore da esquerda e da direita desse nó e maior que |fb|
+	-se sim, verifica o tipo adequado de toração a ser feita e execute-a.
+	-se não, vá para o passo 2.
+
+
+
+tipoAVL removeAVL ( tipoAVL *T, int chave, int *flagMudança ) {
+	if ( T == NULL ) {
+		*flagMudança = 0;
+	} else {
+		if ( T-valor > chave ) {
+			T->esq = removeAVL ( T->esq, chave, flagMudança );
+			if ( *flagMudanca == 1 ) {
+					verificaInsDireita (&T);
+			}
+		} else if ( T->valor < chave ) {
+				T->dir = removeAVL(T->dir, chave, flagMudança);
+				if ( *flagMudanca == 1 ) {
+					verificaInsEsquerda (&T);
+				}
+			} else {
+				if ( T->dir == NULL ) {
+					tipoAVL *noAux;
+					noAux = T;
+					if ( T->esq != NULL ){
+						T->fb ++;	
+					}
+					T = T->esq;
+					free (noAux);
+					*flagMudança = 1;
+				} else if ( T->esq == NULL ) {
+						tipoAVL *noAux;
+						noAux = T;
+						T = T->dir;
+						T->fb --;
+						free (noAux);
+						*flagMudança = 1;
+				} else {
+					T->esq = buscaRemove ( T->esq, T, flagMudança );
+					if ( *flagMudança ){
+						verificaInsDireita ( &(T) );
+				}
+			}
+		}
+	}
+}
+	
+tipoAVL *buscaRemove ( tipoAVL *T, tipoAVL *noChave, int *flagMudança ) {
+	tipoAVL *noAux;
+	if ( T->dir != NULL ) {
+		T->dir = buscaRemove ( T->dir, noChave, flagMudanca );
+		if ( *flagMudança ) {
+			verificaInsDireita ( &(T) );
+		}
+	} else {
+		noChave->valor = T->valor;
+		noAux = T;
+		T = T->esq;
+		free (noAux);
+		*flagMudanca = 1;
+	}
+	return T;
+}
+						
+			

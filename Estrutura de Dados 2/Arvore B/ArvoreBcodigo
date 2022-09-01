@@ -1,0 +1,46 @@
+/**
+	UFMT- Disciplina Estrutura de Dados 2
+	Professor: Ivairton
+	Data: julho 2014
+
+	Implementação da estrutura Arvore B
+**/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define T 2	//Constante T que determina o tamanho da arvore b
+#define MAX_CHAVES ( (2*T) -1 )	//Constante que determina o tamanho maximo de cada no
+#define MAX_FILHOS ( 2 * T )	//Constante que determina o tamanho maximo de filhos
+#define MIN_CHAVES ( T - 1 ) 	//Constante que determina o tamanho minimo de chaves
+
+//Definição da estrutura
+struct estruturaArvB {
+	int contChaves;
+	char chaves[MAX_CHAVES];
+	struct estruturaArvB *filhos[MAX_FILHOS];
+	int folha;
+};
+typedef estruturArvB tipoArvB;
+
+//Prototipo de funções
+tipoArvB *alocaNovoNo();
+
+//Função para alocar novo nó
+tipoArvB *alocaNovoNo(){
+	tipoArvB *novoNo;
+	int i;
+
+	novoNo = (tipoArvB*) malloc (sizeof(tipoArvB));
+	novoNo->contChaves = 0;
+	folha = 1;
+
+	for (i = 0; i < MAX_CHAVES; i ++)
+		novoNo->chaves[i] = 0;
+
+	for (i = 0; i < MAX_FILHOS; i ++)
+		novoNo->filhos[i] = NULL;
+
+	return novoNo;
+}
+

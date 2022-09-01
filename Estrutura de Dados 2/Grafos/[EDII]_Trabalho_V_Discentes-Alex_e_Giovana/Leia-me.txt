@@ -1,0 +1,21 @@
+﻿		    Implementação do Trabalho 4 - Árvore B.
+	UFMT, 28 de Julho de 2014, Disciplina Estrutura de Dados II
+			Docente: Ivairton Santos
+		     Autores: Giovana Tanita & Alex Iuasse
+
+
+COMO UTILIZAR O PROGRAMA:
+
+a) Tenha um arquivo "books.txt". Este arquivo deve conter um inteiro na primeira
+linha, seguido do número ISBN seguindo o formato XXXX-XXXX, espaço e o título do livro.
+b) Execute o arquivo "Main.c". Os livros cadastrados no "books.txt" serão automativamente
+inseridos na árvore.
+c) Um menu aparecerá. Utilize dos seguintes comandos:
+	1 - Inserir novo livro
+	2 - Buscar um livro pelo código ISBN
+	3 - Remover um livro pelo código ISBN
+	4 - Imprimir a lista de todos os livros cadastrados
+	5 - Sair
+d) Ao escolher a opção "5 - Sair" um arquivo nomeado "Relatorio.txt" será gerado. Este
+arquivo conterá uma lista de todos os livros cadastrados seguindo o formato <ISBN>/<Título>.
+

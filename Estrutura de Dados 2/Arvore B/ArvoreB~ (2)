@@ -1,0 +1,22 @@
+Nas arvores B cada no possui varios valores e mais que 2 filhos.
+Uma arvore B possui as seguintes propriedades:
+
+1- Todo no x possui os seguintes campos:
+	a- n, que corresponde aos numero de chaves (valores) armazenadas em x
+	b- as n chaves (R1, R2.. Rn) sao armazenadas em ordem crescente
+	c- folha, indica se x e uma folha ou um no interno
+
+2- Se x e um no interno, entao ele possui n+1 ponteiros (f1, f2,...,fn) para seus filhos, podendo alguns serem nulos.
+
+3- se Ri e uma chave na sub-arvore apontada por fi, entao |f1| < R1 < |f2| < R2 < ... |fn| < Rn < |fn+1|
+
+4- todas as folhas da arvore estao na mesma altura
+
+5- existe um numero maximo e minimo de filhos em um no. Este numero pode ser descrito em termos de um inteiro fixo T maior ou igual a 2, chamado de grau minimo
+	a- Todo no, diferente da raiz deve possuir ao menos t-1 chaves
+	b- todo no interno, diferente da raiz, deve deve possuir ao mesnos t filhos
+	c- se a arvore nao e vazia, entao a raiz possui ao menos uma chave
+	d- todo no pode conter no maximo 2t-1 chaves
+	e- todo no interno pode ter no maximo 2t filhos
+
+Diferente das arvores binarias balanceadas, em uma arvore B a medida que inserimos novos valores, ela cresce para "cima"

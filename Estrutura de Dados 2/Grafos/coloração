@@ -1,0 +1,46 @@
+Coloração em Grafos
+
+Uma coloração de vértices de um grafo não dirigido é uma atribuição de "cores" aos vértices de tal maneira que os vértices nas pontas de uma aresta possuem cores diferentes.
+
+Problema: dado um grafo nao-direcionado, encotnrar uma configuração de coloração dos vértices com número mínimo de cores.
+Dizemos que uma coloração é ótima se o número de cores é mínimo.
+
+Algoritmo: Suponha uma enumeração dos vértices, ou seja, uma sequência v0,v1,v2,...,v(n-1) em que cada vértice aparece uma única vez. Supondo que o grafo não tem laços, podemos implementar o seguinte algoritmo:
+
+algoritmo de coloração {
+	k <- 0
+	para i=0 ate (n-1) faça
+		D={1,...,k}
+		para j=0 ate (i-1) faça
+			se vj e adjacente a vi entao
+				D = D- { cor[ v[j] ] }
+			fim_se
+		fim_para
+		se D != vazio entao
+			cor[vi] <- min(D)
+		senao
+			k <- k + 1
+			cor[vi] <- k
+		fim_se
+	fim_para
+fim
+
+algoritmo2 {
+	colori (v1)
+	Q <- v1
+	enquanto Q != vazio faça
+		vk <- removeElementoDaFila (Q)
+		para todo vj adjacente a vk faça 
+			colori (vj)
+			Q <- vj
+		fim_para
+	fim_enquanto
+
+colori (vj)
+	se vj nao tem cor entao
+		cor <- procura cor apropriada
+		se nao existe cor entao
+			cria nova cor
+		cor (vj) <- cor
+		fim_se
+	fim_funcao

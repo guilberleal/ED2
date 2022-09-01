@@ -1,0 +1,132 @@
+Algoritmo em Grafos
+
+Uma definição elementar é que grafo é um conjunto de arestas e vértices, sendo que "vértice" é um "objeto" simples,
+que pode ter nome e/ou outros atributos, e "arestas" é uma conexão entre Z vértices. A notação matermática de um grafo
+é dada por:
+	
+	G = (V,E), sendo G o grafo, V o conjunto de vértices e E o conjunto de arestas.
+
+Classicamente, um grafo tem sua representação gráfica composta por círculos (que representam os vértices) e linhas,
+conectando os círculos (que representam as arestas, e consequentemente a relação entre os vértices).
+
+	(1)---------(2)---
+	 |	     |	 |
+	 |	     |	  ---(5)	
+	 |	     |	 |
+	(3)---------(4)---
+
+Grafo direcionado: Um grafo direcionado G é um par (V,E), onde V é um conjunto .... de vértices e E é uma relação
+binária em V.
+Uma aresta (u,v) sai do vértice u e chega a v. Assim, o vértice v é adjacente á u.
+
+Exemplo:
+
+	(0)-------(1)
+	||	/  |
+	||    /    |
+	|| /	   |
+	(2)-------(3)-
+		   |-|
+
+Grafo não direcionado: Um grafo não direcionado, é um par (V,E) onde o conjunto de arestas E é constituído de pares
+de vértices não ordenados.
+As arestas (u,v) e (v,u) são considerados como uma única aresta. A relação de adjacência é simétrica.
+Outra característica, é que não ocorrem loops de um vértice para ele mesmo, como é possível no grafo direcionado.
+
+Grau de um vértice:
+	-Em Grafos não-direcionados, o grau de um vértice é o número de arestas que "incidem" nele. Um vérticede grau
+zero é "isolado" ou "não conectado". Ex: (1)---(2)    (3)
+	-Em grafos direcionados, o grau é o número de arestas que saem dele, mais o número de arestas que chegam.
+Ex: (1)----(2)
+     |
+     |
+    (3)
+
+Caminho entre vértices: Um caminho é uma sequência/conjunto de vértices.
+Assim, um caminho de comprimento K de um vértice X a Y, é uma sequência (V0, V1, V2 ... Vk) tal que X = V0 e Y = Vk,
+e (Vi-1, Vi) pertence a E para i = 1,2,3,4,...,k.
+
+O comprimento é o número de "arestas" presentes no caminho.
+Se existe um caminho c de x a y, entoã y é "alcançavel" a partir de x via c.
+Um caminho é "simples" se todos oos vértices são distintos.
+
+(0)------->(1)			c1: (0,1,2,3) => simpes, comp = 3
+||	  / |			c2> (0,1,3,3,2) => não simples, comp = 4
+||    /     |
+|| /	    V
+(2)<-------(3)
+	   (loop)	
+
+
+Ciclos: Um caminho C forma um cilo se V0 = Vk, e o caminho contém ao menos uma aresta, nos grafos direcionados, ou ao menos 
+3 arestas, nos grafos não direcionados.
+
+Componentes conectados: Um grafo não direcionado é conectado se cada par de vértices está conectado por um caminho.
+Um grafo não direcionado é conectado se ele tem certamente um componente conectado.
+
+	(0)----(2)	(4)		
+	 |    /		 |
+	 |  /		 |
+	(1)		(5)
+		(3)
+
+Componente fortemente conectado: Um grafo direcionado é fortemente conectado se cada dois vértices quaisquer são alcançveis
+a partir um do outro. Ex: (0)--->(1)		(4)		{0,1,2,3} são fortemente conectados
+			  ||    / |		 ^		{4,5} "Não" são fortemente conectados
+			  ||  /   |		 |
+			  (3)<---(2)		(5)
+				(loop)
+
+Subgrafo: Um grafo G' = (V,E)' é um subgrafo de G = (V,E) se V' C V e E' C E.
+
+Grafo ponderado: Possui pesos associados ás arestas.
+
+Grafo bipartido: Grafo não direcionado G = (V,E) no qual V pode ser particionado em dois conjuntos V1 e V2 tal que (u,v) E A.
+Implica que u E V1 e v E V2 a u E V2 e v E V1
+
+Grafo completo: Um grafo completo é um grafo não direcionado no qual todos os pares de vértices são adjacentes.
+
+Estruturas de dados para representação computacional de grafos:
+
+=> Matriz de adjacência: A matriz de adjacência é uma matriz nxn, onde n é o número de vértices e E(i,j) é 1 (ou verdadeiro),
+se e somente se existe uma aresta de i para j.
+
+Para grafos ponderados, E[i,j] contém o rótulo a peso associado á aresta.
+
+Se não existe uma aresta E[i,j], então é necessário empregar um valor que não possa ser usado como rótulo/peso.
+
+Ex: (0)----->(1)	(4)		Ex2:    (0)-------(1)	(4)
+    ||	      |		 ^			  \	   |	 |
+    ||	      |		 |			    \	   |	 |
+    ||	      V		 |			       \   |	 |
+    (3)<-----(2)	(5)			(3)	  (2)	(5)
+
+
+( AQUI TEM UMA TABELA DE ADJACÊNCIA !!!!!! )
+
+	    (loop) 
+
+Distancias: 
+		Um caminho C de um vertice r a s é dito minimo se nao existe outro caminho de r a s que contenha menos
+		arestas que C.
+		O problema da distancia consiste em, dado os vertices r e s, determinar a distancia de r a s.
+		O algoritmo elementar das distancias consiste de uma adaptação do algoritmo de percurso em largura.
+		Cada iteração começa com uma fila de vertices ativos, no inicio da primeira iteração, r e o unico
+		vertice da fila. Cada iteração consite no seguinte:
+		1. Se a fila esta vazia
+			entao parar
+		2. senao seja v o primeiro vertice da fila
+			para cada vertice w adjacente a r
+				se distancia (w) = <><> entao
+				distancia (w) <- distancia (v) + 1
+				insira w no final da fila
+			retire v da fila
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+insere_arv_rn(1) - No primeiro passo, como a árvore é nula e sem nenhum nó. Se forma a raiz com a cor preta, e folhas nulas. 
+
+insere_arv_rn(10) - No segundo passo, verifica se o primeiro nó encontrado é maior ou menor que ele (chave) . Como o valor é maior insere o 10 como filho a direita do Nó com o valor 1. Neste momento 10 é vermelho como é filho do Nó com o valor 1, e continua preto. 
+
+insere_arv_rn(2) - No terceiro passo, no primeiro momento concluimos que 2 é maior que 1, sendo assim descemos a subárvore a direita, depois verificamos que 2 é menor que 10 e descemos a subárvore a esquerda, como o filho a esquerda de 10 é nulo, inserimos o valor 2. Neste momento ocorre um Caso em que o Nó (2) e o Pai dele (10) são vermelhos. E fazemos a rotação a direita. Neste momento o Nó (10) e o Pai (2) são filhos da direita, então faremos a rotação para esquerda. Sendo assim, faremos a fixação de inserção que no caso vamos trocar as cores, então a ordem atual é 2 (preto) raiz, e 1 (vermelho) filho a esquerda de (2) e 10 (vermelho) filho a direita de (2).
+
+insere_arv_rn(3) - No quarto passo, 3 é maior que 2, então descemos a subárvore a direita, verificamos então que 3 é menor que 10 e descemos a subárvore a esquerda, encontramos  uma folha nula e inserimos o 3, neste momento o pai (10) ,filho (3), tio (1) são vermelhos, então, vamos recolorir pai (10) para preto, tio (1) para preto e avô (2) para vermelho. No momento a raiza é vermelha sendo assim vamos colorir ela pra preta.
+
+insere_arv_rn(9) - No quinto passo, vemos que 9 é maior que 2 então descemos a subárvore a direita, depois verificamos que 10 é menor que 9 então descemos a subárvore a esquerda, depois descemos subárvore a direita de 3 por que 9 é maior que 3. Entramos em um Caso onde O Nó (9) e Pai (3) são vermelhos (rubros), então faremos uma rotação a esquerda. Após isso nó e pai são filhos da esquerda então faremos uma rotação a direira. Após isso trocamos as cores, e (9) vai para preto, e (3) e (10) ficam vermelhos. 
+
+ insere_arv_rn(8) - Para simplificar o processo: 8 maior que 2, desce a direita. 8 é menor que 9, desce a esquerda. 8 maior que 3 desce a direita. Nó (8) , Pai (3) e tio (10) são vermelhos. vamos recolorir o pai (3) para preto , tio (10) fica preto  e avô (9) fica vermelho. 
+
+ insere_arv_rn(4) - Para simplificar o processo: 4 maior que 2, desce a direita. 4 menor que 9, desce a esquerda. 4 maior que 3, desce a direita. 4 menor que 8 desce a esquerda, neste momento encontramos um no nulo e inserimos. Acontece um caso em que o nó (4) e o pai (8) são vermelhos. Então faremos a rotação a direita. Depois nó e pai são filhos da direita, então faremos a rotação a esquerda. Então vamos trocar as cores. 4 fica preto, e seus filhos 3  e 8 ficam vermelhos.
+
+ insere_arv_rn(7) - Para simplificar o processo: 7 maior que 2, desce a direita. 7 é menor que 9, desce a esquerda. 7 é maior que 4 desce a direita. 7 é menor que 8, desce a esquerda e então faremos a inserção. Neste momento, nó , pai e tio são vermelhos. Então vamos recolorir pai, tio e avô. O pai (8) fica preto, o tio (3) fica preto e o avô (4) fica vermelho. Depois o Nó (4) e seu pai (9) são vermelhos, então faremos uma rotação a direita. Nó e pai são filhos da direita então faremos a rotação a esquerda. E enfim trocamos as cores. Raiz (4) fica preta e seu filho a esquerda (2) fica vermelho. 
+
+ insere_arv_rn(6) - Para simplificar o processo: 6 maior que 4, desce a direita. 6 menor que 9, desce a esquerda. 6 menor que 8, desce a esquerda. 6 menor que 7 desce a esquerda. Nó (6) e Pai (7) são filhos da esquerda , faremos então uma rotação a direita. E trocamos as cores, O pai (7) fica preto e o irmão (8) fica vermelho. 
+
+ insere_arv_rn(5) - Para simplificar o processo: 5 maior que 4, desce a direita. 5 menor que 9 desce a esquerda. 5 menor que 7, desce a esquerda. 5 menor que 6 desce a esquerda e inserimos. Nó , pai e tio são vermelhos, então vamos recolorir.  o Avô (7) fica vermelho, seus filhos 6 e 8 ficam pretos e o 5 inserido fica vermelho. Novamente nó, pai e tio são vermelhos então recolorimos. 9 e 2 ficam preto  e 4 (raiz) fica vermelho. Por fim a raiz é vermelha, trocamos a cor para preta.
+
+Em anexo a arvore final desenhada.
